@@ -1,25 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
+function Login({isShowLogin}) {
+    return (
+        
+        <div className={`${!isShowLogin ? "active" : ""}show`}>
+         <div className='container bg-light col-md-8'>
+            <div className='form-box solid'>
+                <form className='px-4 py-3'>
+                    <div className='form-group-row'>
+                        <div className='form-row'>
+                            <div className='form-group col-md-4 mb-2'>
+                                <h1 className='login-text'>Sign In</h1>
+                                <label className='form-label' htmlFor='username-input'>Username</label>
+                                <br/>
+                                <input
+                                id='username-input'
+                                type="text"
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+                                className='form-control'/>
+                            </div>  
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // perform login logic here
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>Email:</label>
-      <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-
-      <label>Password:</label>
-      <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-
-      <button type="submit">Login</button>
-    </form>
-  );
+                            <div className='form-group col-md-4 mb-2'>
+                                <label>Password</label>
+                                <br/>
+                                <input
+                                type="password"
+                                id="password-input"
+                                className='form-control '
+                                />
+                                <br/>
+                                <input className='btn btn-primary' type="submit" value="LOGIN" />                    
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            </div>  
+        </div>
+    );
 }
 
 export default Login;
