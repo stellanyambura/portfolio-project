@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import 'semantic-ui-css/semantic.min.css'
 import ProjectList from './components/Projects';
+import Users from './components/Users';
 
 
 
@@ -21,7 +22,8 @@ function App() {
               <Routes>
                   <Route path='/login' element={<Login/>}/>
                   <Route path='/' element={<Home/>}/>
-                  <Route path='/project' element={<Project/>}/>
+                  <Route path='/users' element={<Users/>}/>
+                  <Route path='/Projectlist' element={<ProjectList/>}/>
                  </Routes>
           </BrowserRouter>
       </div>
