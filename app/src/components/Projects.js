@@ -5,7 +5,7 @@ function ProjectList() {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/projects')
+    axios.get('https://phase-three-sinatra-project.onrender.com/api/projects')
       .then(response => setProjects(response.data))
       .catch(error => console.error(error));
   }, []);

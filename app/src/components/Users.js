@@ -2,7 +2,7 @@ function Users() {
     const [users, setUsers] = useState([]);
   
     useEffect(() => {
-      axios.get('/api/users')
+      axios.get('https://phase-three-sinatra-project.onrender.com/api/users')
         .then(response => setUsers(response.data))
         .catch(error => console.log(error));
     }, []);

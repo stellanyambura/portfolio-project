@@ -4,7 +4,7 @@ function Skills() {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    fetch('/api/skills')
+    fetch('https://phase-three-sinatra-project.onrender.com/api/skills')
       .then(response => response.json())
       .then(data => setSkills(data));
   }, []);

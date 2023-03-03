@@ -15,6 +15,9 @@ function Nav() {
           <Link to='/project'>Project</Link>
         </li>
         <li>
+          <Link to='/skills'>Skills</Link>
+        </li>
+        <li>
           <Link to='/users'>Users</Link>
         </li>
       </ul>
