@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.home {
+  background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fwebsite%2520background%2F&psig=AOvVaw0cVIDGO0PsXVZdxyVZ0h4Q&ust=1677871370309000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCIi4ion8vf0CFQAAAAAdAAAAABAo'); 
+ background-repeat: no-repeat;
+ background-size: auto 110vh;
+ background-position: left, center, right;
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+ min-height: 95vh;
+background-color: black;
+}
+
