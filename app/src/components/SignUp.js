@@ -1,49 +1,42 @@
-import React from "react";
+import React, { useState } from 'react';
 
+function SignupForm() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-function SignUp () {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Here, you would submit the form data to the backend using a fetch request or similar method.
+  };
 
-    return (
-         
-        <div className="hero">
-        <div className="form-box left">
-            <div class="info">
-                <h2>Carbonified</h2>
-                <div className="contact-info">
-                    <p>box 300 - 00100,</p>
-                    <p>Nairobi,</p>
-                    <p>Kenya</p>
-                </div>
-                <div className="icons">
-                    <div className="contact">
-                        <i className="fas fa-phone"></i>
-                        <p>Tel: +254 7200001001</p>
-                    </div>
-                    <div className="contact">
-                        <i className="fas fa-envelope"></i>
-                        <p>Email: support@Carbonified.com</p>
-                    </div>
-                </div>
-                <div className="mouse">
-                    <br></br>
-                    <br></br>
-                    <a href="./Home">Back to home</a>
-                    <i className="fas fa-arrow-left"></i>
-                </div>
-                </div>
-        </div>
-        <div className="form-box right">
-            <div className="button-box">
-                <div className="btn0">
-                <button type="button" class="toggle-btn" onclick="login()">Login</button>
-                <button type="button" class="toggle-btn" onclick="register()">Register</button>
-                </div>
-            </div>
-            </div>
-        {SignUp}
-    </div>
-    
-    );
+  return (
+    <form onSubmit={handleSubmit}>
+      <label>
+        First Name:
+        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+      </label>
+      <label>
+        Last Name:
+        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+      </label>
+      <label>
+        Email:
+        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+      </label>
+      <label>
+        Password:
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+      </label>
+      <label>
+        Confirm Password:
+        <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+      </label>
+      <button type="submit">Sign Up</button>
+    </form>
+  );
 }
 
-export default SignUp;
+export default SignupForm;

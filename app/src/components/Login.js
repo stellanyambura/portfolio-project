@@ -2,7 +2,7 @@ import React from 'react';
 function Login({isShowLogin}) {
     return (
         
-        <div className={`${!isShowLogin ? "active" : ""}show`}>
+        <div id="login-text" className={`${!isShowLogin ? "active" : ""}show`}>
          <div className='container bg-light col-md-8'>
             <div className='form-box solid'>
                 <form className='px-4 py-3'>

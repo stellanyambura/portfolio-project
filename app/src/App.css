@@ -1,4 +1,4 @@
-.home {
+/* .home {
    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fsearch%2Fwebsite%2520background%2F&psig=AOvVaw0cVIDGO0PsXVZdxyVZ0h4Q&ust=1677871370309000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCIi4ion8vf0CFQAAAAAdAAAAABAo'); 
   background-repeat: no-repeat;
   background-size: auto 110vh;
@@ -7,5 +7,29 @@
   align-items: center;
   justify-content: space-around;
   min-height: 95vh;
- background-color: black;
+ background-color: black; */
+
+.home{
+  background-image: url('../images/imge.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  padding-top: 5vh;
+  text-align: center;
+  font-style: italic;
+  padding-bottom: 75vh;
+}
+.projects{
+background-color: blueviolet;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 20px 20px #526066;
+  text-align: center;
+}
+.port{
+  color:aliceblue
+
 }
