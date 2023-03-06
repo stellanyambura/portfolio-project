@@ -1,42 +1,75 @@
 import React, { useState } from 'react';
 
 function SignupForm() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here, you would submit the form data to the backend using a fetch request or similar method.
+    console.log("active post");
+    let newObj = {
+      first_name,
+      last_name,
+      email,
+
+      password,
+    };
+    if (
+      newObj.first_name !== null &&
+      newObj.last_name !== null &&
+      newObj.email !== null &&
+      newObj.password !== null
+    ) {
+      fetch("https://phase-three-sinatra-project.onrender.com/add/user", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newObj),
+      }).then((response) => {
+        console.log(response);
+      });
+      // setIsLoggedIn(true);
+    } else {
+      console.log("error");
+    }
   };
 
+  // if (isLoggedIn) {
+    // redirect to the dashboard once the user is logged in
+    // return <Redirect to="/login" />;
+  
+    // Here, you would submit the form data to the backend using a fetch request or similar method.
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form  className ="sign" onSubmit={handleSubmit}>
       <label>
         First Name:
-        <input type="text" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
       </label>
+      <input type="text" value={first_name} onChange={(e) => setFirstName(e.target.value)} />
       <label>
         Last Name:
-        <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-      </label>
+        </label>
+        <input type="text" value={last_name} onChange={(e) => setLastName(e.target.value)} />
       <label>
         Email:
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </label>
+       </label>
+       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <label>
         Password:
+        </label>
         <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      </label>
       <label>
         Confirm Password:
-        <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-      </label>
+       </label>
+       <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
       <button type="submit">Sign Up</button>
     </form>
   );
-}
+  }
 
 export default SignupForm;

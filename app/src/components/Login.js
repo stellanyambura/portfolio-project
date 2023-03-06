@@ -1,43 +1,59 @@
-import React from 'react';
-function Login({isShowLogin}) {
-    return (
-        
-        <div id="login-text" className={`${!isShowLogin ? "active" : ""}show`}>
-         <div className='container bg-light col-md-8'>
-            <div className='form-box solid'>
-                <form className='px-4 py-3'>
-                    <div className='form-group-row'>
-                        <div className='form-row'>
-                            <div className='form-group col-md-4 mb-2'>
-                                <h1 className='login-text'>Sign In</h1>
-                                <label className='form-label' htmlFor='username-input'>Username</label>
-                                <br/>
-                                <input
-                                id='username-input'
-                                type="text"
+import React, { useState} from "react";
+import { useNavigate } from "react-router";
 
-                                className='form-control'/>
-                            </div>  
+export default function Login(props) {
+let redirect = useNavigate()
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [error, setError] = useState(null);
 
-                            <div className='form-group col-md-4 mb-2'>
-                                <label>Password</label>
-                                <br/>
-                                <input
-                                type="password"
-                                id="password-input"
-                                className='form-control '
-                                />
-                                <br/>
-                                <input className='btn btn-primary' type="submit" value="LOGIN" />                    
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            
-            </div>  
-        </div>
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // simulate a successful login
+    if(localStorage.getItem(email)){
+      const user = JSON.parse(localStorage.getItem(email));
+      if (user.password === password){
+        redirect('/')
+        return;
+      }
+    }
+      setError("Invalid email or password. Please try again.");
+  };
+
+  return (
+    <div className="auth-form-container">
+    <h2>Login</h2>
+    <form className="login-form" onSubmit={handleSubmit}>
+    <label htmlFor="email"></label>
+    <input
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    type="email"
+    placeholder="your email address"
+    id="email"
+    name="email"
+    required
+    />
+    <label htmlFor="password"></label>
+    <input
+    value={password}
+    onChange={(e) => setPassword(e.target.value)}
+    type="password"
+    placeholder="your password"
+    id="password"
+    name="password"
+    required
+    />
+    <button> Login</button>
+    {error && <p>{error}</p>}
+    </form>
+    <button
+    className="link-btn"
+    onClick={() => redirect('/signup')}
+    >
+    Don't have an account? Signup
+    </button>
+    </div>
     );
-}
-
-export default Login;
+    }
