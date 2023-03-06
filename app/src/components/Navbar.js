@@ -5,7 +5,7 @@ const Nav=()=>{
     return(
       <>
     <nav className="navbar bg-dark" style={{height: "150%", fontSize: "1.5rem", color:'white'}}>
-        <NavLink to="/project" style={{backgroundColor:'mint'}}>Project</NavLink>
+        <NavLink to="/projectlist" style={{backgroundColor:'mint'}}>ProjectList</NavLink>
        
         <NavLink to="/signup" style={{backgroundColor:'mint' ,hover:'red'}}>SignUp</NavLink>
         <NavLink to="/login" style={{paddingRight: "15px",}}>LoginPage</NavLink>
