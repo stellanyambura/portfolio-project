@@ -1,3 +1,6 @@
+### portfolio projet 
+#  **** all the best
+
 A portfolio is a collection of work samples that demonstrate an individual's skills, abilities, and achievements in a particular field or industry. It typically includes a range of materials such as writing samples, design work, photography, programming code, and other relevant examples of completed projects.
 
 The purpose of a portfolio is to showcase the best of an individual's work and demonstrate their experience and expertise to potential employers, clients, or collaborators. It can be used in a variety of contexts, including job applications, freelance work proposals, and academic applications.
