@@ -1,5 +1,6 @@
 ### portfolio projet 
 #  **** all the best
+### find the READMEA.md on the backend it will guide you on the project
 
 A portfolio is a collection of work samples that demonstrate an individual's skills, abilities, and achievements in a particular field or industry. It typically includes a range of materials such as writing samples, design work, photography, programming code, and other relevant examples of completed projects.
 
