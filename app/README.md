@@ -17,3 +17,4 @@ I'm a problem solver at heart and have worked on projects ranging from small-sca
 In addition to my technical skills, I'm also a strong communicator and team player. I value collaboration and believe that working together with a team is essential to delivering successful software projects. I'm always looking for ways to learn and grow, and I'm constantly seeking out new challenges and opportunities to expand my skills.
 
 Thank you for taking the time to review my portfolio. If you have any questions or would like to discuss potential opportunities, please feel free to reach out to me. I'm excited to continue my journey as a software engineer and look forward to the possibilities ahead.
+### deployement link for front end https://portfolio-project-alpha-five.vercel.app/
