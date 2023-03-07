@@ -1,75 +1,113 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { Redirect } from 'react-router-dom';
 
 function SignupForm() {
-  const [first_name, setFirstName] = useState('');
-  const [last_name, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [first_name, setFirstName] = useState("");
+  const [last_name, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = () => {
     console.log("active post");
     let newObj = {
       first_name,
       last_name,
       email,
-
       password,
     };
+    console.log(newObj);
     if (
-      newObj.first_name !== null &&
-      newObj.last_name !== null &&
-      newObj.email !== null &&
-      newObj.password !== null
+      first_name !== '' &&
+      last_name !== '' &&
+      email !== '' &&
+      password !== ''&&
+      confirmPassword !== ''
     ) {
-      fetch("https://phase-three-sinatra-project.onrender.com/add/user", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newObj),
-      }).then((response) => {
-        console.log(response);
-      });
+      if(password !== confirmPassword) {
+        alert('Passwords do not match');
+      }
+      else{
+        fetch("http://localhost:9292/add/user", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newObj),
+        }).then((response) => {
+          // console.log(response);
+          if(response.ok === true) {
+            alert("Success")
+            setIsSignUp(true);
+          }
+          else(
+            alert("Error")
+          )
+        });
+      }
       // setIsLoggedIn(true);
     } else {
-      console.log("error");
+      alert("Kindly fill in all fields");
     }
   };
 
-  // if (isLoggedIn) {
-    // redirect to the dashboard once the user is logged in
-    // return <Redirect to="/login" />;
-  
-    // Here, you would submit the form data to the backend using a fetch request or similar method.
+  if(isSignUp) {
+    return <Redirect to="/login" />;
+  }
 
   return (
-    <form  className ="sign" onSubmit={handleSubmit}>
-      <label>
-        First Name:
-      </label>
-      <input type="text" value={first_name} onChange={(e) => setFirstName(e.target.value)} />
-      <label>
-        Last Name:
-        </label>
-        <input type="text" value={last_name} onChange={(e) => setLastName(e.target.value)} />
-      <label>
-        Email:
-       </label>
-       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <label>
-        Password:
-        </label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <label>
-        Confirm Password:
-       </label>
-       <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-      <button type="submit">Sign Up</button>
-    </form>
+    <div className="auth-form-container">
+      <form className="sign">
+        <h1>Create an account today</h1>
+        <label>First Name:</label>
+        <input
+          type="text"
+          value={first_name}
+          onChange={(e) => setFirstName(e.target.value)}
+          required
+        />
+        <label>Last Name:</label>
+        <input
+          type="text"
+          value={last_name}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+        />
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+        <label>Confirm Password:</label>
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+        <button onClick={(e)=>{
+          e.preventDefault();
+          handleSubmit()
+        }} type="submit">Create</button>
+        <h3>Already have an account?
+          &nbsp;e
+            <NavLink to="/login">Login</NavLink>
+        </h3>
+      </form>
+    </div>
   );
-  }
+}
 
 export default SignupForm;
