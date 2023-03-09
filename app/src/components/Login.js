@@ -18,7 +18,7 @@ export default function Login({storeEmail}) {
     };
     console.log(newObj);
     if (email !== '' && password !== '') {
-      fetch("http://localhost:9292/login", {
+      fetch("https://portfolio-project-alpha-five.vercel.app/login", {
         method: "POST",
         headers: {
           Accept: "application/json",

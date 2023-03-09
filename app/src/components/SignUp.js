@@ -30,7 +30,7 @@ function SignupForm() {
         alert('Passwords do not match');
       }
       else{
-        fetch("http://localhost:9292/add/user", {
+        fetch("https://portfolio-project-alpha-five.vercel.app/add/user", {
           method: "POST",
           headers: {
             Accept: "application/json",
