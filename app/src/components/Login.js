@@ -18,7 +18,7 @@ export default function Login({storeEmail}) {
     };
     console.log(newObj);
     if (email !== '' && password !== '') {
-      fetch("https://portfolio-project-alpha-five.vercel.app/login", {
+      fetch("https://phase-three-sinatra-project.onrender.com/login", {
         method: "POST",
         headers: {
           Accept: "application/json",

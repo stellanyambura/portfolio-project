@@ -14,7 +14,7 @@ function ProjectList({ currentUserEmail }) {
   const [projectUrl, setProjectUrl] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:9292/user/${currentUserEmail}`)
+    fetch(`https://phase-three-sinatra-project.onrender.com/user/${currentUserEmail}`)
       .then((response) => response.json())
       .then((data) => {
         setData(data);
@@ -34,7 +34,7 @@ function ProjectList({ currentUserEmail }) {
   // deleting skills
   let handleDeleteSkill = (skill_id) => {
     fetch(
-      `http://localhost:9292/destroy/skills/${id}/${skill_id}`,
+      `https://phase-three-sinatra-project.onrender.com/destroy/skills/${id}/${skill_id}`,
       {
         method: "DELETE",
         headers: {
@@ -88,7 +88,7 @@ function ProjectList({ currentUserEmail }) {
 
   let handleDeletingProject = (project_id) => {
     fetch(
-      `http://localhost:9292/users/${id}/projects/${project_id}`,
+      `https://phase-three-sinatra-project.onrender.com/users/${id}/projects/${project_id}`,
       {
         method: "DELETE",
         headers: {
@@ -146,7 +146,7 @@ function ProjectList({ currentUserEmail }) {
 
     console.log(newObj);
 
-    fetch(`http://localhost:9292/add/skill/${id}`, {
+    fetch(`https://phase-three-sinatra-project.onrender.com/add/skill/${id}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -171,7 +171,7 @@ function ProjectList({ currentUserEmail }) {
 
     console.log(newObj);
     fetch(
-      `http://localhost:9292/add/projects/${id}`,
+      `https://phase-three-sinatra-project.onrender.com/add/projects/${id}`,
       {
         method: "POST",
         headers: {

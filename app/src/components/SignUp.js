@@ -30,7 +30,7 @@ function SignupForm() {
         alert('Passwords do not match');
       }
       else{
-        fetch("https://portfolio-project-alpha-five.vercel.app/add/user", {
+        fetch("https://phase-three-sinatra-project.onrender.com/add/user", {
           method: "POST",
           headers: {
             Accept: "application/json",
